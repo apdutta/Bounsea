@@ -13,7 +13,7 @@
 
 //////////////////////////////////////////////////////////////////////////
 // ABounseaCharacter
-
+//Quick commit test to make sure this is working
 ABounseaCharacter::ABounseaCharacter()
 {
 	// Set size for collision capsule
