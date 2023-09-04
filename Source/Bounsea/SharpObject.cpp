@@ -15,6 +15,7 @@ ASharpObject::ASharpObject()
 void ASharpObject::BeginPlay()
 {
 	Super::BeginPlay();
+	activated = false;
 	
 }
 
@@ -22,6 +23,5 @@ void ASharpObject::BeginPlay()
 void ASharpObject::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
