@@ -16,8 +16,16 @@ public:
 	UPROPERTY(EditAnywhere)
 	float speedScale = 300.0f;
 
+	UPROPERTY(EditAnywhere)
+	float RespawnDelay = 1.5f;
+
+	UPROPERTY(EditAnywhere)
+	FVector respawnLocation = FVector(-2800, 530, 670);
+
 	// Sets default values for this actor's properties
 	AFrisbee();
+
+	void RespawnFrisbee();
 
 protected:
 	// Called when the game starts or when spawned
@@ -26,5 +34,9 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+private:
+	// Timer handle for respawn
+	FTimerHandle respawnTimerHandle;
 
 };
