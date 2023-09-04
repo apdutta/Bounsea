@@ -23,7 +23,7 @@ void AShark::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	FRotator rotate = FRotator(0, 1, 0);
+	FRotator rotate = FRotator(0, -1, 0);
 	AddActorLocalRotation(rotate);
 
 }
