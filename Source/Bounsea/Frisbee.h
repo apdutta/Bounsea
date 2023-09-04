@@ -14,13 +14,16 @@ class BOUNSEA_API AFrisbee : public AActor
 public:	
 	// Variables
 	UPROPERTY(EditAnywhere)
-	float speedScale = 300.0f;
+	float speedScale = 350.0f;
 
 	UPROPERTY(EditAnywhere)
-	float RespawnDelay = 1.5f;
+	FVector respawnLocation = FVector(-2800, 500, 745);
 
 	UPROPERTY(EditAnywhere)
-	FVector respawnLocation = FVector(-2800, 530, 670);
+	float respawnTimer = 2500.0;
+
+	//FTransform objectTransform;
+	//FVector translation;
 
 	// Sets default values for this actor's properties
 	AFrisbee();
@@ -34,9 +37,5 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
-private:
-	// Timer handle for respawn
-	FTimerHandle respawnTimerHandle;
 
 };
