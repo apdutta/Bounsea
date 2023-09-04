@@ -50,7 +50,6 @@ ABounseaCharacter::ABounseaCharacter()
 
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named ThirdPersonCharacter (to avoid direct content references in C++)
-	isInAir = false;
 }
 
 void ABounseaCharacter::BeginPlay()
@@ -112,17 +111,4 @@ void ABounseaCharacter::Look(const FInputActionValue& Value)
 {
     // ...
 }
-
-void ABounseaCharacter::Jump()
-{
-	isInAir = true;
-	Super::Jump();
-}
-void ABounseaCharacter::StopJumping()
-{
-	isInAir = false;
-	Super::StopJumping(); 
-}
-
-
 
