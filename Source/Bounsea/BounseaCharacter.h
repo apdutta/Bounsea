@@ -48,6 +48,14 @@ protected:
 
 	/** Called for looking input */
 	void Look(const FInputActionValue& Value);
+
+	/** Called for jump input */
+	void Jump();
+	void StopJumping();
+
+
+private:
+	bool isInAir = false;
 			
 
 protected:

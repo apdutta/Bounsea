@@ -9,7 +9,8 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
-
+#include "Kismet/KismetMathLibrary.h"
+#include "Math/UnrealMathVectorCommon.h"
 
 //////////////////////////////////////////////////////////////////////////
 // ABounseaCharacter
@@ -49,6 +50,7 @@ ABounseaCharacter::ABounseaCharacter()
 
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named ThirdPersonCharacter (to avoid direct content references in C++)
+	isInAir = false;
 }
 
 void ABounseaCharacter::BeginPlay()
@@ -75,8 +77,8 @@ void ABounseaCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerI
 	if (UEnhancedInputComponent* EnhancedInputComponent = CastChecked<UEnhancedInputComponent>(PlayerInputComponent)) {
 		
 		//Jumping
-		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Triggered, this, &ACharacter::Jump);
-		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Completed, this, &ACharacter::StopJumping);
+		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Triggered, this, &ABounseaCharacter::Jump);
+		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Completed, this, &ABounseaCharacter::StopJumping);
 
 		//Moving
 		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &ABounseaCharacter::Move);
@@ -111,6 +113,16 @@ void ABounseaCharacter::Look(const FInputActionValue& Value)
     // ...
 }
 
+void ABounseaCharacter::Jump()
+{
+	isInAir = true;
+	Super::Jump();
+}
+void ABounseaCharacter::StopJumping()
+{
+	isInAir = false;
+	Super::StopJumping(); 
+}
 
 
 
