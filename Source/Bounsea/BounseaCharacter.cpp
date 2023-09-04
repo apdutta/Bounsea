@@ -113,16 +113,3 @@ void ABounseaCharacter::Look(const FInputActionValue& Value)
     // ...
 }
 
-void ABounseaCharacter::Jump()
-{
-	isInAir = true;
-	Super::Jump();
-}
-void ABounseaCharacter::StopJumping()
-{
-	isInAir = false;
-	Super::StopJumping(); 
-}
-
-
-
